@@ -8,7 +8,6 @@ class Student
     student.name = row[1]
     student.grade = row[2]
     student
-
   end
 
   def self.all
@@ -101,7 +100,7 @@ class Student
     SQL
     DB[:conn].execute(sql).collect do |row|
       self.new_from_db(row)
-    end
+    end.first
   end
 
   def self.all_students_in_grade_X(grade)
